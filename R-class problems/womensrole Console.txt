@@ -1,0 +1,184 @@
+
+R version 2.15.1 (2012-06-22) -- "Roasted Marshmallows"
+Copyright (C) 2012 The R Foundation for Statistical Computing
+ISBN 3-900051-07-0
+Platform: i386-apple-darwin9.8.0/i386 (32-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+During startup - Warning messages:
+1: Setting LC_CTYPE failed, using "C" 
+2: Setting LC_COLLATE failed, using "C" 
+3: Setting LC_TIME failed, using "C" 
+4: Setting LC_MESSAGES failed, using "C" 
+5: Setting LC_PAPER failed, using "C" 
+[R.app GUI 1.52 (6188) i386-apple-darwin9.8.0]
+
+WARNING: You're using a non-UTF8 locale, therefore only ASCII characters will work.
+Please read R for Mac OS X FAQ (see Help) section 9 and adjust your system preferences accordingly.
+[Workspace restored from /Users/zehadyzbdullahkhan/.RData]
+[History restored from /Users/zehadyzbdullahkhan/.Rapp.history]
+
+> 		f <-womensrole$gender ==  "Female"
+Error: object 'womensrole' not found
+> 	data("womensrole",package = "HSAUR2")
+> 	fm1 <-  cbind(agree,disagree) ~ gender + education
+> 	womensrole_glm_1 <- glm(fm1,data = womensrole,family=binomial())
+> 		f <-womensrole$gender ==  "Female"
+> 		plot(womensrole$education,role.fitted,type = "n",ylab = "Probability of agreeing",xlab= "Education",ylim = c(0,1))
+Error in xy.coords(x, y, xlabel, ylabel, log) : 
+  object 'role.fitted' not found
+> 	role.fitted<- predict(womensrole_glm_1,type = "response")
+> 		f <-womensrole$gender ==  "Female"
+> 		plot(womensrole$education,role.fitted,type = "n",ylab = "Probability of agreeing",xlab= "Education",ylim = c(0,1))
+> 		lines(womensrole$education[!f],role.fitted[!f],lty=1)
+> 		lines(womensrole$education[f],role.fitted[f],lty=2)
+> 		lgtxt <- c("Fitted (Males)","Fitted (Females)")
+> 		legend("topright",lgtxt,lty = 1:2,bty = "n")
+> ?legend
+starting httpd help server ... done
+> 		y <- womensrole$agree/ (womensrole$agree + womensrole$disagree)
+> 		text(womenrole$education,y,ifelse(f,"\\VE","\\MA"),family = "HersheySerif",cex = 1.25)
+Error in text(womenrole$education, y, ifelse(f, "\\VE", "\\MA"), family = "HersheySerif",  : 
+  object 'womenrole' not found
+> 		text(womensrole$education,y,ifelse(f,"\\VE","\\MA"),family = "HersheySerif",cex = 1.25)
+> 	coef(womensrole_glm_1)
+ (Intercept) genderFemale    education 
+  2.50937187  -0.01144685  -0.27062085 
+> womensrole$agree/ (womensrole$agree + womensrole$disagree)
+ [1] 0.66666667 1.00000000 1.00000000 0.66666667 0.50000000 0.65000000 0.73529412 0.64285714 0.60483871 0.50000000 0.41558442 0.37894737 0.31944444 0.30693069
+[15] 0.26168224 0.28125000 0.12000000 0.09375000 0.03448276 0.13333333 0.13043478 0.66666667 1.00000000        NaN 0.85714286 1.00000000 0.66666667 0.77272727
+[29] 0.61904762 0.71653543 0.46153846 0.45081967 0.44642857 0.32040472 0.15596330 0.18181818 0.17073171 0.10156250 0.09677419 0.00000000 0.33333333 0.33333333
+> 	fm2 <- cbind(agree,disagree) ~ gender * education
+> 	womensrole_glm_2 <- glm(fm2,data = womensrole,family = binomial())
+> 	myplot(role.fitted)
+Error: could not find function "myplot"
+> 	role.fitted<- predict(womensrole_glm_1,type = "response")
+> 	myplot(role.fitted)
+Error: could not find function "myplot"
+> myplot <- function(role.fitted){
++ 		f <-womensrole$gender ==  "Female"
++ 		plot(womensrole$education,role.fitted,type = "n",ylab = "Probability of agreeing",xlab= "Education",ylim = c(0,1))
++ 		lines(womensrole$education[!f],role.fitted[!f],lty=1)
++ 		lines(womensrole$education[f],role.fitted[f],lty=2)
++ 		lgtxt <- c("Fitted (Males)","Fitted (Females)")
++ 		legend("topright",lgtxt,lty = 1:2,bty = "n")
++ 		y <- womensrole$agree/ (womensrole$agree + womensrole$disagree)
++ 		text(womensrole$education,y,ifelse(f,"\\VE","\\MA"),family = "HersheySerif",cex = 1.25)
++ 	}
+> 	myplot(role.fitted)
+> 	summary(womensrole_glm2)
+Error in summary(womensrole_glm2) : object 'womensrole_glm2' not found
+> 	summary(womensrole_glm_2)
+
+Call:
+glm(formula = fm2, family = binomial(), data = womensrole)
+
+Deviance Residuals: 
+     Min        1Q    Median        3Q       Max  
+-2.39097  -0.88062   0.01532   0.72783   2.45262  
+
+Coefficients:
+                       Estimate Std. Error z value Pr(>|z|)    
+(Intercept)             2.09820    0.23550   8.910  < 2e-16 ***
+genderFemale            0.90474    0.36007   2.513  0.01198 *  
+education              -0.23403    0.02019 -11.592  < 2e-16 ***
+genderFemale:education -0.08138    0.03109  -2.617  0.00886 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 451.722  on 40  degrees of freedom
+Residual deviance:  57.103  on 37  degrees of freedom
+AIC: 203.16
+
+Number of Fisher Scoring iterations: 4
+
+> 	role.fitted1 <- predict(womensrole_glm_1,type = "response")
+> 	myplot(role.fitted1)
+> 	role.fitted2 <- predict(womensrole_glm_2,type = "response")
+> 	myplot(role.fitted2)
+> 	role.fitted1
+         1          2          3          4          5          6          7          8          9         10         11         12         13         14         15 
+0.92479622 0.90367579 0.87741013 0.84520916 0.80641604 0.76065386 0.70799100 0.64908642 0.58526016 0.51843768 0.45094910 0.38521819 0.32342449 0.26723449 0.21766598 
+        16         17         18         19         20         21         22         23         24         25         26         27         28         29         30 
+0.17509480 0.13936647 0.10995678 0.08613213 0.06708057 0.05200323 0.92399623 0.90267478 0.87617356 0.84370563 0.80462281 0.75856363 0.70561885 0.64647470 0.58247897 
+        31         32         33         34         35         36         37         38         39         40         41         42 
+0.51557929 0.44811655 0.38251087 0.32092476 0.26499894 0.21572302 0.17344760 0.13799916 0.10884151 0.08523536 0.06636776 0.05144180 
+> 	role.fitted2
+         1          2          3          4          5          6          7          8          9         10         11         12         13         14         15 
+0.89072768 0.86578208 0.83618901 0.80156657 0.76171177 0.71668157 0.66686350 0.61301559 0.55625553 0.49798796 0.43977499 0.38317291 0.32957023 0.28006150 0.23537894 
+        16         17         18         19         20         21         22         23         24         25         26         27         28         29         30 
+0.19588560 0.16161807 0.13235845 0.10771545 0.08719947 0.07028327 0.95270680 0.93628674 0.91467627 0.88662348 0.85085144 0.80625905 0.75221704 0.68891682 0.61766492 
+        31         32         33         34         35         36         37         38         39         40         41         42 
+0.54096726 0.46227825 0.38542467 0.31388960 0.25022574 0.19578962 0.15081391 0.11469628 0.08634875 0.06449697 0.04788527 0.03539019 
+> 	genderFemale
+Error: object 'genderFemale' not found
+> cuse <- read.table("http://data.princeton.edu/wws509/datasets/cuse.dat",header=TRUE)
+> cuse <- read.table("http://data.princeton.edu/wws509/datasets/cuse.dat",header=TRUE)
+> cuse
+     age education wantsMore notUsing using
+1    <25       low       yes       53     6
+2    <25       low        no       10     4
+3    <25      high       yes      212    52
+4    <25      high        no       50    10
+5  25-29       low       yes       60    14
+6  25-29       low        no       19    10
+7  25-29      high       yes      155    54
+8  25-29      high        no       65    27
+9  30-39       low       yes      112    33
+10 30-39       low        no       77    80
+11 30-39      high       yes      118    46
+12 30-39      high        no       68    78
+13 40-49       low       yes       35     6
+14 40-49       low        no       46    48
+15 40-49      high       yes        8     8
+16 40-49      high        no       12    31
+> attach(cuse)
+> lrfit <-glm(cbind(using,notUsing) ~ age + education + wantsMore, family = binomial)
+> 	summary(lrmfit)
+Error in summary(lrmfit) : object 'lrmfit' not found
+> 	summary(lrfit)
+
+Call:
+glm(formula = cbind(using, notUsing) ~ age + education + wantsMore, 
+    family = binomial)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-2.5148  -0.9376   0.2408   0.9822   1.7333  
+
+Coefficients:
+             Estimate Std. Error z value Pr(>|z|)    
+(Intercept)   -0.4188     0.1401  -2.990 0.002786 ** 
+age30-39       0.5192     0.1478   3.513 0.000443 ***
+age40-49       0.7999     0.1993   4.012 6.01e-05 ***
+age<25        -0.3894     0.1759  -2.214 0.026809 *  
+educationlow  -0.3250     0.1240  -2.620 0.008789 ** 
+wantsMoreyes  -0.8330     0.1175  -7.091 1.33e-12 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 165.772  on 15  degrees of freedom
+Residual deviance:  29.917  on 10  degrees of freedom
+AIC: 113.43
+
+Number of Fisher Scoring iterations: 4
+
+>   plot(lrfit)
+Hit <Return> to see next plot: 

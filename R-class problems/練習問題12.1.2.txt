@@ -1,0 +1,71 @@
+load(url('http://www.keihirose.com/spam200.Rdata'))
+X.test[1,]
+nrow(X.test)
+ncol(X.test)
+
+
+#Še•Ï”‚ğ•½‹Ï‚OA•ªU‚P‚É‚µ‚Ä‚¨‚­
+X = scale(X.train)
+dim(X)
+X[1:5,]
+apply(X,2,mean)
+var(X)
+
+#•ªU‹³•¶‚³‚ñs—ñ
+Sigma = var(X)
+Sigma[1:5,1:5]
+
+n = nrow(X)
+n
+1/(n-1) * (t(X)%*%X)[1:5,1:5]
+
+#Eigen Value Lambda, Eigen Vector Matrix V
+a = eigen(Sigma)
+
+lambda =a$values
+
+V = a$vectors
+
+dim(V)
+
+rownames(V) = colnames(X)
+
+names(lambda) = paste("PC",seq(along=lambda),rep="")
+
+colnames(V) = names(lambda)
+
+cumsum(lambda)/sum(lambda)
+
+V[,3:3]
+
+lambda = diag(lambda)
+
+lambda[1:5,1:5]
+
+#confirmation of eigen values and eigen vectors
+
+cbind(Sigma %*% V[,1],lambda[1]*V[,1])
+
+round(t(V) %*% V, 10)
+round(V %*% t(V),10)[1:5,1:5]
+
+#Diagonalization and Spector decomposition
+round(t(V) %*% Sigma %*% V, 10)
+
+(V %*% lambda %*% t(V))[1:5,1:5]
+
+Sigma[1:5,1:5]
+
+
+#å¬•ª‚ÌŒvZ
+Y = X %*% V
+dim(Y)
+Y[1:5,]
+
+#Y‚Ì¬•ª‚Í–³‘ŠŠÖ
+round(var(Y),10)
+
+#Plotting eigen vector
+plot(V[,c(1,2)],type="n",main="V")
+text(V[,1],V[,2],rownames(V),cex=0.5)
+
